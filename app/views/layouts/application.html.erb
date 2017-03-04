@@ -7,19 +7,57 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <a class="navbar-brand" href="#">LunchAPP</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+
+      <ul class="nav navbar-nav">
+        
+        <% if user_signed_in? %>
+          <%= link_to("My Skills", my_abilities_path) %> | 
+          <%= link_to("My Meetings", my_meetings_path) %>
+        <% else %>
+        <% end %>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">   
+
+      <% if user_signed_in? %>
+          You're logged as <%= current_user.login %>.
+          <%= link_to("Edit profile", edit_user_registration_path) %> | 
+          <%= link_to("Log out", destroy_user_session_path, method: :delete) %> | 
+        <% else %>
+          You're not logged in. <%= link_to("Sign in", new_user_session_path) %> or <%= link_to("Sign up", new_user_registration_path) %>
+        <% end %>
+
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+
+<!-- notyfikacje -->
 <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "flash #{key}" %>
 <% end %>
-<% if user_signed_in? %>
-    You're logged as <%= current_user.login %>.
-    <%= link_to("Edit profile", edit_user_registration_path) %> | 
-    <%= link_to("Log out", destroy_user_session_path, method: :delete) %> | 
-    <%= link_to("My Skills", my_abilities_path) %> | 
-    <%= link_to("My Meetings", my_meetings_path) %>
-  <% else %>
-    You're not logged in. <%= link_to("Sign in", new_user_session_path) %> or <%= link_to("Sign up", new_user_registration_path) %>
-  <% end %>
+
 <%= yield %>
+
+</div> 
+<!-- kontener -->
+
 
 </body>
 </html>
