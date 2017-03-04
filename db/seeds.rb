@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+skills_list = ["Agile", "SCRUM", "Accounting", "Opensource"]
+
+skills_list.each do |name|
+  Ability.create( name: name ) unless Ability.find_by_name(name)
+end
