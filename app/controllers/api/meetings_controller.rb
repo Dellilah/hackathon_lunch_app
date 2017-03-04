@@ -9,5 +9,10 @@ module Api
       MeetingsMailer.new_invitation(@invited, url).deliver_later
       render json: {}, status: :ok
     end
+
+    def waiting_for_confirmation
+      @user = User.find(params[:current_user_id])
+      @waiting_meetings = Meeting.sent_to(@user).where(status: "new")
+    end
   end
 end
