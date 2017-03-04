@@ -14,5 +14,17 @@ module Api
       @user = User.find(params[:current_user_id])
       @waiting_meetings = Meeting.sent_to(@user).where(status: "new")
     end
+
+    def confirm
+      @meeting = Meeting.find(params[:meeting_id])
+      @meeting.confirm
+      render json: {}, status: :ok
+    end
+
+    def reject
+      @meeting = Meeting.find(params[:meeting_id])
+      @meeting.reject
+      render json: {}, status: :ok
+    end
   end
 end
