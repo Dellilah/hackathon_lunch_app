@@ -1,0 +1,26 @@
+<h2>YOUR MEETINGS</h2>
+<h3>Sent by you</h3>
+<table>
+  <thead>
+    <tr>
+      <th>With who?</th>
+      <th>When</th>
+      <th>Where</th>
+      <th>Status</th>
+    </tr>
+    <%= render partial: 'meetings/sent_by_me_row', collection: @sent_by_me_meetings, as: :meeting %>
+  </thead>
+</table>
+
+<h3>Sent to you</h3>
+<table>
+  <thead>
+    <tr>
+      <th>With who?</th>
+      <th>When</th>
+      <th>Where</th>
+      <th>Status</th>
+    </tr>
+    <%= render partial: 'meetings/sent_to_me_row', collection: @sent_to_me_meetings, as: :meeting %>
+  </thead>
+</table>

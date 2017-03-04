@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'my_abilities' => 'user_abilities#edit'
   post 'my_abilities' => 'user_abilities#update', as: :update_abilities
 
+  get 'my_meetings' => 'meetings#index'
+
   namespace :api do
     get 'with_ability' => 'users#with_ability'
     post 'set_meeting' => 'meetings#new'
