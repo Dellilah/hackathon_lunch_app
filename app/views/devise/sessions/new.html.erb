@@ -1,13 +1,13 @@
-<form class="form-signin">
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin"}) do |f| %>
+  <h2>Log in</h2>
     <label for="new_user" class="sr-only">Login</label>
     <%= f.text_field :login, autofocus: true, class: "form-control", placeholder: "Login" %>
 
     <label for="user_password" class="sr-only">Login</label>
     <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
-
 
   <% if devise_mapping.rememberable? -%>
 
@@ -19,11 +19,10 @@
 
   <% end -%>
 
-
     <%= f.submit "Log in", class: "actions btn btn-lg btn-primary btn-block" %>
 
 <% end %>
 
 <%= render "devise/shared/links" %>
 
-</form>
+
