@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1> You're invitation to meeting has been confirmed</h1>
+    <div>Invitation details</div>
+    With... <%= @meeting.invited.first_name %>
+    When... <%= @meeting.when %>
+    Where... <%= @meeting.location %>
+  </body>
+</html>

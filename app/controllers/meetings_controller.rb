@@ -8,6 +8,7 @@ class MeetingsController < ApplicationController
     meeting_id = Base64.decode64(params[:meeting_id])
     @meeting = Meeting.find(meeting_id)
     @meeting.confirm
+    MeetingsMailer.invitation_confirmed(@meeting.invitor, @meeting).deliver_later
     redirect_to my_meetings_path, alert: "You've succesfully confirmed a meeting'!"
   end
 end
