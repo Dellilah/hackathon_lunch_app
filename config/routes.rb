@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'my_abilities' => 'user_abilities#update', as: :update_abilities
 
   get 'my_meetings' => 'meetings#index'
+  get 'confirm_meeting/:meeting_id' => 'meetings#confirm_from_email', as: :confirm_meeting
 
   namespace :api do
     get 'with_ability' => 'users#with_ability'
