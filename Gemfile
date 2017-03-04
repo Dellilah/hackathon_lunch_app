@@ -48,3 +48,4 @@ end
 gem 'devise'
 gem 'rabl'
 gem 'oj'
+gem 'pry', '~> 0.10.4'
