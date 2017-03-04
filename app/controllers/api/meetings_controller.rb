@@ -4,6 +4,8 @@ module Api
 
     def new
       Meeting.create(invitor_id: params["invitor_id"], invited_id: params["invited_id"], status: "new")
+      @invited = User.find(params["invited_id"])
+      MeetingsMailer.new_invitation(@invited).deliver_later
       render json: {}, status: :ok
     end
   end
