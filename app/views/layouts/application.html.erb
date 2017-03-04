@@ -7,10 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
 <% if user_signed_in? %>
     You're logged as <%= current_user.login %>.
     <%= link_to("Edit profile", edit_user_registration_path) %> | 
-    <%= link_to("Log out", destroy_user_session_path, method: :delete) %>
+    <%= link_to("Log out", destroy_user_session_path, method: :delete) %> | 
+    <%= link_to("My Skills", my_abilities_path) %>
   <% else %>
     You're not logged in. <%= link_to("Sign in", new_user_session_path) %> or <%= link_to("Sign up", new_user_registration_path) %>
   <% end %>

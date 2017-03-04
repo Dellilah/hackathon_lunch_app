@@ -1,0 +1,6 @@
+<h2> Choose your skills </h2>
+
+<%= form_tag(update_abilities_path, method: :post) do -%>
+  <%= render partial: 'user_abilities/ability_checkbox', collection: @abilities, as: :ability %>
+  <div><%= submit_tag 'Save' %></div>
+<% end %>
