@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'with_ability' => 'users#with_ability'
+    post 'set_meeting' => 'meetings#new'
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
