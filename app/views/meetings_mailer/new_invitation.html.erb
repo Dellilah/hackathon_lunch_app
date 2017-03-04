@@ -5,6 +5,6 @@
   </head>
   <body>
     <h1> You have new invitation waiting for your confirmation</h1>
-    <%= link_to("Confirm this invitation", confirm_meeting_url(meeting_id: @meeting_id)) %>
+    <%= link_to("Confirm this invitation", @url) %>
   </body>
 </html>

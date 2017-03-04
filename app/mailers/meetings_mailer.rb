@@ -1,7 +1,7 @@
 class MeetingsMailer < ApplicationMailer
-  def new_invitation(user, meeting)
+  def new_invitation(user, url)
     @user = user
-    @meeting_id = Base64.encode64(meeting.id.to_s)
+    @url = url
     mail(to: @user.email, subject: 'You have new invitation')
   end
 end
