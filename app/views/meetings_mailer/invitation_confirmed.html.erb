@@ -2,12 +2,41 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+    }
+    .confirm-link {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .confirm-link a {
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #7ED321;
+      color: white;
+      margin: 20px 0;
+      display: inline-block;
+    }
+    .description {
+      padding: 10px 0;
+      color: #666;
+    }
+    strong {
+      font-weight: bold;
+    }
+    </style>
   </head>
-  <body>
-    <h1> You're invitation to meeting has been confirmed</h1>
-    <div>Invitation details</div>
+ <body>
+    <h2>You're invitation to meeting has been confirmed</h2>
+    <h3>Invitation details</h3>
+    <p class="description">
     With... <%= @meeting.invited.first_name %>
     When... <%= @meeting.when %>
-    Where... <%= @meeting.location %>
+    Where... <%= @meeting.location %></p>
   </body>
 </html>
