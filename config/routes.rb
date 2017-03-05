@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'my_abilities' => 'user_abilities#edit'
   post 'my_abilities' => 'user_abilities#update', as: :update_abilities
 
+  get 'my_preferences' => 'user_preferences#edit'
+  post 'my_preferences' => 'user_preferences#update', as: :update_preferences
+
   get 'my_meetings' => 'meetings#index'
   get 'confirm_meeting/:meeting_id' => 'meetings#confirm_from_email', as: :confirm_meeting
   get 'reject_meeting/:meeting_id' => 'meetings#reject_from_email', as: :reject_meeting

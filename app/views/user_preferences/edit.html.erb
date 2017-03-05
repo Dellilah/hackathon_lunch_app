@@ -1,0 +1,32 @@
+<h2> Choose your preferences </h2>
+
+<%= form_tag(update_preferences_path, method: :post) do -%>
+  <div class="checkbox">
+    <label>
+    <%= check_box_tag 'days_numbers[]', 1, @user_days.include?('1') -%> Monday
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+    <%= check_box_tag 'days_numbers[]', 2, @user_days.include?('2') -%> Tuesday
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+    <%= check_box_tag 'days_numbers[]', 3, @user_days.include?('3') -%> Wednesday
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+    <%= check_box_tag 'days_numbers[]', 4, @user_days.include?('4') -%> Thursday
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+    <%= check_box_tag 'days_numbers[]', 5, @user_days.include?('5') -%> Friday
+    </label>
+  </div>
+  From <%= select_tag :from_hour, options_for_select([ "11:00", "12:00","13:00","14:00","15:00","16:00","17:00","18:00"], "#{current_user.from_hour}:00") %><br>
+  To <%= select_tag :to_hour, options_for_select([ "11:00", "12:00","13:00","14:00","15:00","16:00","17:00","18:00"], "#{current_user.to_hour}:00") %><br>
+  <div><%= submit_tag 'Save' %></div>
+<% end %>
