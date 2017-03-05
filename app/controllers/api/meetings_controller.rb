@@ -14,11 +14,8 @@ module Api
         status: "new",
         location: params["location"]
       )
-      puts  "*"*100
-      puts params
-      puts  "*"*100
-      params['time']
-      date_time = DateTime.parse("#{params['date']} #{params['time']}")
+      date = params['date'].to_date.to_s
+      date_time = DateTime.parse("#{date} #{params['time']}")
       @meeting.update_attributes(when: date_time)
       @invited = User.find(params["invited_id"])
       confirm_url = confirm_meeting_url((Base64.encode64(@meeting.id.to_s)), host: request.host_with_port )
