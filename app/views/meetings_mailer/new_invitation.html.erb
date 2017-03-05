@@ -33,12 +33,12 @@
   </head>
   <body>
     <h2>You have new invitation waiting for your confirmation</h2>
-    <p class="description"><strong>Alicja</strong> wants to meet you for a lunch <strong>Tomorrow at 2 PM</strong> in Red Lion, 1 Eldon Street, London.</p>
-    <p class="description">Alicja is looking for <strong>information about accounting in Spain</strong> and can help you with <strong>agile methodology in software development</strong>.
+    <p class="description"><strong><%= @user.first_name %></strong> wants to meet you for a lunch <strong>Tomorrow at 2 PM</strong> in Red Lion, 1 Eldon Street, London.</p>
+    <p class="description"><%= @user.first_name %> is looking for <strong><%= @user.looking_for %></strong> and can help you with <strong><%= @user.good_at %></strong>.
     <p class="description">
-    Also, Alicja can talk about: <strong>fashion, leadership and marketing</strong>.
+    Also, <%= @user.first_name %> can talk about: <strong><%= @user.abilities.first(3).map(&:name).join(",") %></strong>.
     </p>
-    <p class="confirm-link"><%= link_to("Confirm this invitation", @url) %></p>
-    <p class="reject-link"><a href="#">Reject</a></p> <!-- TODO -->
+    <p class="confirm-link"><%= link_to("Confirm this invitation", @confirm_url) %></p>
+    <p class="confirm-link"><%= link_to("Reject this invitation", @reject_url) %></p>
   </body>
 </html>
