@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'with_ability' => 'users#with_ability'
+    get 'with_ability_and_datetime' => 'users#with_ability_and_datetime'
     post 'set_meeting' => 'meetings#new'
     get 'waiting_for_confirmation' => 'meetings#waiting_for_confirmation'
     post 'confirm' => 'meetings#confirm'
