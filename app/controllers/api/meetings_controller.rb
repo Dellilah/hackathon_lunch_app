@@ -18,7 +18,7 @@ module Api
       @invited = User.find(params["invited_id"])
       confirm_url = confirm_meeting_url((Base64.encode64(@meeting.id.to_s)), host: request.host_with_port )
       reject_url = reject_meeting_url((Base64.encode64(@meeting.id.to_s)), host: request.host_with_port )
-      MeetingsMailer.new_invitation(@invited, confirm_url, reject_url).deliver_later
+      MeetingsMailer.new_invitation(@invited, @meeting, confirm_url, reject_url).deliver_later
       render json: {}, status: :ok
     end
 

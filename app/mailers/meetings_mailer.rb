@@ -1,6 +1,7 @@
 class MeetingsMailer < ApplicationMailer
-  def new_invitation(user, confirm_url, reject_url)
+  def new_invitation(user, meeting, confirm_url, reject_url)
     @user = user
+    @meeting = meeting
     @confirm_url = confirm_url
     @reject_url = reject_url
     mail(to: @user.email, subject: 'You have new invitation')

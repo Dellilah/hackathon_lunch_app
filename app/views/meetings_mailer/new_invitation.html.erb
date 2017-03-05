@@ -33,7 +33,7 @@
   </head>
   <body>
     <h2>You have new invitation waiting for your confirmation</h2>
-    <p class="description"><strong><%= @user.first_name %></strong> wants to meet you for a lunch <strong>Tomorrow at 2 PM</strong> in Red Lion, 1 Eldon Street, London.</p>
+    <p class="description"><strong><%= @user.first_name %></strong> wants to meet you for a lunch <strong><%= @meeting.when %></strong> in <%= @meeting.location %>.</p>
     <p class="description"><%= @user.first_name %> is looking for <strong><%= @user.looking_for %></strong> and can help you with <strong><%= @user.good_at %></strong>.
     <p class="description">
     Also, <%= @user.first_name %> can talk about: <strong><%= @user.abilities.first(3).map(&:name).join(",") %></strong>.
