@@ -1,5 +1,6 @@
-<h2> Choose your preferences </h2>
+<h2> Choose your lunch preferences </h2>
 
+<h4>Days</h4>
 <%= form_tag(update_preferences_path, method: :post) do -%>
   <div class="checkbox">
     <label>
@@ -26,7 +27,10 @@
     <%= check_box_tag 'days_numbers[]', 5, @user_days.include?('5') -%> Friday
     </label>
   </div>
-  From <%= select_tag :from_hour, options_for_select([ "11:00", "12:00","13:00","14:00","15:00","16:00","17:00","18:00"], "#{current_user.from_hour}:00") %><br>
+
+  <h4>Hours</h4>
+
+  From <%= select_tag :from_hour, options_for_select([ "11:00", "12:00","13:00","14:00","15:00","16:00","17:00","18:00"], "#{current_user.from_hour}:00") %><br/>
   To <%= select_tag :to_hour, options_for_select([ "11:00", "12:00","13:00","14:00","15:00","16:00","17:00","18:00"], "#{current_user.to_hour}:00") %><br>
-  <div><%= submit_tag 'Save' %></div>
+  <div><%= submit_tag 'Save' , class: "btn btn-default"%></div>
 <% end %>
