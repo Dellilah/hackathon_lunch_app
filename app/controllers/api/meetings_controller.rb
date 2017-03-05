@@ -8,7 +8,13 @@ module Api
     skip_before_action :verify_authenticity_token
 
     def new
-      @meeting = Meeting.create(invitor_id: params["invitor_id"], invited_id: params["invited_id"], status: "new")
+      @meeting = Meeting.create(
+        invitor_id: params["invitor_id"], 
+        invited_id: params["invited_id"],
+        status: "new",
+        location: params["location"],
+        'when': Time.now
+      )
       @invited = User.find(params["invited_id"])
       confirm_url = confirm_meeting_url((Base64.encode64(@meeting.id.to_s)), host: request.host_with_port )
       reject_url = reject_meeting_url((Base64.encode64(@meeting.id.to_s)), host: request.host_with_port )
