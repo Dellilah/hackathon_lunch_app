@@ -41,3 +41,7 @@ skills_list = [
 skills_list.each do |name|
   Ability.create( name: name ) unless Ability.find_by_name(name)
 end
+
+Ability.all.each do |ability|
+  ability.destroy unless skills_list.include?(ability.name)
+end
