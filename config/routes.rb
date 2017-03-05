@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get 'my_meetings' => 'meetings#index'
   get 'confirm_meeting/:meeting_id' => 'meetings#confirm_from_email', as: :confirm_meeting
+  get 'reject_meeting/:meeting_id' => 'meetings#reject_from_email', as: :reject_meeting
 
   namespace :api do
     get 'with_ability' => 'users#with_ability'

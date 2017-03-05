@@ -5,6 +5,7 @@
   </head>
   <body>
     <h1> You have new invitation waiting for your confirmation</h1>
-    <%= link_to("Confirm this invitation", @url) %>
+    <%= link_to("Confirm this invitation", @confirm_url) %>
+    <%= link_to("Reject this invitation", @reject_url) %>
   </body>
 </html>
