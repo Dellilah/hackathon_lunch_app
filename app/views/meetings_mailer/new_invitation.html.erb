@@ -39,6 +39,6 @@
     Also, <%= @user.first_name %> can talk about: <strong><%= @user.abilities.first(3).map(&:name).join(",") %></strong>.
     </p>
     <p class="confirm-link"><%= link_to("Confirm this invitation", @confirm_url) %></p>
-    <p class="confirm-link"><%= link_to("Reject this invitation", @reject_url) %></p>
+    <p><%= link_to("Reject this invitation", @reject_url) %></p>
   </body>
 </html>
