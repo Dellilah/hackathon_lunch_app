@@ -51,3 +51,5 @@ gem 'oj'
 gem 'pry', '~> 0.10.4'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'geocoder'
