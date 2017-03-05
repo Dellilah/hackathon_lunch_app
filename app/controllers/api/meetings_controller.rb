@@ -14,6 +14,10 @@ module Api
         status: "new",
         location: params["location"]
       )
+      puts  "*"*100
+      puts params
+      puts  "*"*100
+      params['time']
       date_time = DateTime.parse("#{params['date']} #{params['time']}")
       @meeting.update_attributes(when: date_time)
       @invited = User.find(params["invited_id"])
