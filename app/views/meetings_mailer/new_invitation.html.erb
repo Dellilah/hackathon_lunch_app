@@ -2,9 +2,43 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+    }
+    .confirm-link {
+    	font-weight: bold;
+    	font-size: 18px;
+    }
+    .confirm-link a {
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #7ED321;
+      color: white;
+      margin: 20px 0;
+      display: inline-block;
+    }
+    .description {
+      padding: 10px 0;
+      color: #666;
+    }
+    strong {
+      font-weight: bold;
+    }
+    </style>
   </head>
   <body>
-    <h1> You have new invitation waiting for your confirmation</h1>
-    <%= link_to("Confirm this invitation", @url) %>
+    <h2>You have new invitation waiting for your confirmation</h2>
+    <p class="description"><strong>Alicja</strong> wants to meet you for a lunch <strong>Tomorrow at 2 PM</strong> in Red Lion, 1 Eldon Street, London.</p>
+    <p class="description">Alicja is looking for <strong>information about accounting in Spain</strong> and can help you with <strong>agile methodology in software development</strong>.
+    <p class="description">
+    Also, Alicja can talk about: <strong>fashion, leadership and marketing</strong>.
+    </p>
+    <p class="confirm-link"><%= link_to("Confirm this invitation", @url) %></p>
+    <p class="reject-link"><a href="#">Reject</a></p> <!-- TODO -->
   </body>
 </html>
