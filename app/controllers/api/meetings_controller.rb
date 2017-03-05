@@ -14,7 +14,8 @@ module Api
         status: "new",
         location: params["location"]
       )
-      @meeting.update_attributes(when: Time.now)
+      date_time = DateTime.parse("#{params['date']} #{params['time']}")
+      @meeting.update_attributes(when: date_time)
       @invited = User.find(params["invited_id"])
       confirm_url = confirm_meeting_url((Base64.encode64(@meeting.id.to_s)), host: request.host_with_port )
       reject_url = reject_meeting_url((Base64.encode64(@meeting.id.to_s)), host: request.host_with_port )
