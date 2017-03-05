@@ -18,12 +18,14 @@ module Api
     def confirm
       @meeting = Meeting.find(params[:meeting_id])
       @meeting.confirm
+      MeetingsMailer.invitation_confirmed(@meeting.invitor, @meeting).deliver_later
       render json: {}, status: :ok
     end
 
     def reject
       @meeting = Meeting.find(params[:meeting_id])
       @meeting.reject
+      MeetingsMailer.invitation_rejected(@meeting.invitor, @meeting).deliver_later
       render json: {}, status: :ok
     end
   end

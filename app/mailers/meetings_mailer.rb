@@ -10,4 +10,10 @@ class MeetingsMailer < ApplicationMailer
     @meeting = meeting
     mail(to: @user.email, subject: 'Your invitation has been confirmed')
   end
+
+  def invitation_rejected(user, meeting)
+    @user = user
+    @meeting = meeting
+    mail(to: @user.email, subject: 'Your invitation has been rejected')
+  end
 end
